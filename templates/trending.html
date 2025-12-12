@@ -3,6 +3,32 @@
 {% block title %}Trending - Trends{% endblock %}
 
 {% block content %}
-  <h1>Trending</h1>
-  <p>Placeholder for trending topics.</p>
+  <div class="max-w-3xl mx-auto p-4">
+    <h1>Trending (UI-only)</h1>
+
+    <!-- period buttons (these are links setting ?period=) -->
+    <div style="margin-top:0.5rem;">
+      <a href="?period=day">Day</a> |
+      <a href="?period=week">Week</a> |
+      <a href="?period=month">Month</a> |
+      <a href="?period=all">All</a>
+    </div>
+
+    <p style="margin-top:0.75rem;">Showing mock list for: <strong>{{ period }}</strong></p>
+
+    <!-- vertical list of person cards (UI-only) -->
+    <ol style="margin-top:1rem; list-style:none; padding-left:0;">
+      {% for person in people %}
+        <li style="margin-bottom:0.75rem;">
+          <article aria-label="person-card">
+            <header>
+              <h3>{{ person.name }}</h3>
+            </header>
+            <p>{{ person.role }}</p>
+            <p>{{ person.location }}</p>
+          </article>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
 {% endblock %}
