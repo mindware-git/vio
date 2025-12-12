@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Explore - Trends{% endblock %}
+
+{% block content %}
+  <div class="max-w-3xl mx-auto p-4">
+    <h1 class="text-2xl font-semibold">Explore</h1>
+    {% if q %}
+      <p class="mt-4">Showing results for: <strong>{{ q }}</strong></p>
+      <!-- Placeholder: here you would render explore results for the query -->
+    {% else %}
+      <p class="mt-4">Enter a search term above to explore trends.</p>
+    {% endif %}
+  </div>
+{% endblock %}
