@@ -5,7 +5,7 @@ from django.utils import timezone
 class Person(models.Model):
     """인물 정보 모델"""
 
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
     image = models.ImageField(upload_to="persons/", null=True, blank=True)
     biography = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
