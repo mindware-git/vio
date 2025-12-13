@@ -3,31 +3,42 @@
 {% block title %}Home - Trends{% endblock %}
 
 {% block content %}
-  <div>
-    <!-- UI-only search: does not submit -->
-    <section>
-      <form onsubmit="return false;" aria-label="Search form">
-        <input name="q" type="search" placeholder="Search Google Trends" aria-label="Search" />
-        <button type="button">Search</button>
-      </form>
-    </section>
+<div>
+  <!-- UI-only search: does not submit -->
+  <section>
+    <form onsubmit="return false;" aria-label="Search form">
+      <input
+        name="q"
+        type="search"
+        placeholder="Search Google Trends"
+        aria-label="Search"
+      />
+      <button type="button">Search</button>
+    </form>
+  </section>
 
-    <!-- Static person cards (UI-only) -->
-    <section aria-label="People" style="margin-top:1.5rem;">
+    <section aria-label="People" class="mt-6">
       <h2>People</h2>
-      <ul>
+      <ul class="list-none p-0 flex flex-col gap-4">
         {% for person in people %}
-          <li>
-            <article aria-label="person-card">
-              <header>
-                <h3>{{ person.name }}</h3>
-              </header>
-              <p>{{ person.role }}</p>
-              <p>{{ person.location }}</p>
-            </article>
+          <li class="border border-gray-300 rounded-lg overflow-hidden shadow-sm">
+            <a href="{% url 'bio_detail' person.slug %}" class="no-underline text-inherit block">
+              <article aria-label="person-card" class="flex items-center gap-6 p-4">
+                {% if person.image and person.image.url %}
+                  <img src="{{ person.image.url }}" alt="Image of {{ person.name }}" class="w-20 h-20 object-cover rounded-full">
+                {% else %}
+                  <div class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center text-sm text-gray-600">
+                    <span>No Image</span>
+                  </div>
+                {% endif %}
+                <header>
+                  <h3 class="m-0 text-xl font-semibold">{{ person.name }}</h3>
+                </header>
+              </article>
+            </a>
           </li>
         {% endfor %}
       </ul>
     </section>
-  </div>
+</div>
 {% endblock %}

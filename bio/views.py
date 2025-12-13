@@ -1,14 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Person
 
 
 def home(request):
-    # Fake people data for UI-only person cards
-    people = [
-        {"name": "Alex Kim", "role": "Technology Entrepreneur", "location": "Seoul"},
-        {"name": "Mina Park", "role": "Musician", "location": "Busan"},
-        {"name": "Joon Lee", "role": "Researcher", "location": "Daegu"},
-    ]
+    people = Person.objects.all()
     return render(request, "home.html", {"people": people})
 
 
