@@ -208,3 +208,6 @@ __marimo__/
 
 .python-version
 secret.py
+
+.DS_Store
+

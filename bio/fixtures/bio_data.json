@@ -1,2 +1,92 @@
 [
+  {
+    "model": "bio.person",
+    "pk": 1,
+    "fields": {
+      "name": "홍길동",
+      "image": "persons/mon1.jpg",
+      "biography": "조선 시대의 의적. 탐관오리의 재물을 빼앗아 가난한 백성을 도왔다.",
+      "created_at": "2025-12-13T10:00:00Z"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 1,
+    "fields": {
+      "person": 1,
+      "title": "출생",
+      "description": "좌의정 홍 아무개의 서자로 태어남.",
+      "event_date": "1450-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 2,
+    "fields": {
+      "person": 1,
+      "title": "과거 합격",
+      "description": "무과에 급제하였으나 서자라는 이유로 등용되지 못함.",
+      "event_date": "1470-03-15"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 3,
+    "fields": {
+      "person": 1,
+      "title": "율도국 건국",
+      "description": "이상향인 율도국을 건국하여 왕이 됨.",
+      "event_date": "1488-07-20"
+    }
+  },
+  {
+    "model": "bio.person",
+    "pk": 2,
+    "fields": {
+      "name": "이순신",
+      "image": "persons/mon2.jpg",
+      "biography": "조선 중기의 무신. 임진왜란 당시 조선 수군을 이끌고 일본 수군과의 해전에서 연전연승하여 나라를 구한 영웅으로 추앙받고 있다.",
+      "created_at": "2025-12-13T11:00:00Z"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 4,
+    "fields": {
+      "person": 2,
+      "title": "무과 급제",
+      "description": "1576년, 32세의 나이로 무과에 급제하여 관직에 나아감.",
+      "event_date": "1576-02-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 5,
+    "fields": {
+      "person": 2,
+      "title": "한산도 대첩",
+      "description": "1592년 7월 8일, 한산도 앞바다에서 일본 수군을 크게 무찌름. 학익진 전법이 유명하다.",
+      "event_date": "1592-07-08"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 6,
+    "fields": {
+      "person": 2,
+      "title": "명량 해전",
+      "description": "1597년 9월 16일, 13척의 배로 133척의 일본 수군을 격파한 기적적인 해전.",
+      "event_date": "1597-09-16"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 7,
+    "fields": {
+      "person": 2,
+      "title": "노량 해전 (전사)",
+      "description": "1598년 12월 16일, 임진왜란의 마지막 전투인 노량해전에서 적의 총탄에 맞아 전사.",
+      "event_date": "1598-12-16"
+    }
+  }
 ]
