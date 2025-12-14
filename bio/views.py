@@ -4,7 +4,7 @@ from .models import Person
 
 
 def home(request):
-    people = Person.objects.all()
+    people = Person.objects.all()[:5]
     return render(request, "home.html", {"people": people})
 
 

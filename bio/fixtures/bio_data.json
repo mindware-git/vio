@@ -40,6 +40,46 @@
     }
   },
   {
+    "model": "bio.lifeevent",
+    "pk": 34,
+    "fields": {
+      "person": 1,
+      "title": "집을 떠남",
+      "description": "서자라는 차별에 설움을 느끼고 집을 떠나기로 결심함.",
+      "event_date": "1469-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 35,
+    "fields": {
+      "person": 1,
+      "title": "활빈당 조직",
+      "description": "뜻이 맞는 동지들을 모아 활빈당을 조직하고, 탐관오리들을 대상으로 활동을 시작함.",
+      "event_date": "1475-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 36,
+    "fields": {
+      "person": 1,
+      "title": "해인사 보물 탈취",
+      "description": "부패한 해인사의 보물을 빼앗아 굶주리는 백성들에게 나누어 줌.",
+      "event_date": "1480-05-05"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 37,
+    "fields": {
+      "person": 1,
+      "title": "함경도 감영 습격",
+      "description": "함경도 감영을 습격하여 불의한 방법으로 축적한 재물을 빼앗음.",
+      "event_date": "1482-11-10"
+    }
+  },
+  {
     "model": "bio.person",
     "pk": 2,
     "fields": {
@@ -87,6 +127,706 @@
       "title": "노량 해전 (전사)",
       "description": "1598년 12월 16일, 임진왜란의 마지막 전투인 노량해전에서 적의 총탄에 맞아 전사.",
       "event_date": "1598-12-16"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 38,
+    "fields": {
+      "person": 2,
+      "title": "발포만호 부임",
+      "description": "전라좌수영 휘하의 발포만호로 부임하였으나, 상관의 모함으로 파직됨.",
+      "event_date": "1580-07-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 39,
+    "fields": {
+      "person": 2,
+      "title": "녹둔도 전투",
+      "description": "조산보만호 겸 녹둔도 둔전관으로 복무 중 여진족의 기습에 맞서 싸웠으나, 병력 부족으로 패배하고 백의종군함.",
+      "event_date": "1587-09-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 40,
+    "fields": {
+      "person": 2,
+      "title": "전라좌수사 부임",
+      "description": "유성룡의 천거로 파격적으로 전라좌수사에 임명됨.",
+      "event_date": "1591-02-13"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 41,
+    "fields": {
+      "person": 2,
+      "title": "옥포 해전",
+      "description": "임진왜란 첫 출전인 옥포 해전에서 일본 수군을 격파하여 첫 승리를 거둠.",
+      "event_date": "1592-05-07"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 42,
+    "fields": {
+      "person": 2,
+      "title": "사천 해전",
+      "description": "사천 해전에서 거북선을 처음으로 실전에 투입하였고, 이 전투에서 부상을 입음.",
+      "event_date": "1592-05-29"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 43,
+    "fields": {
+      "person": 2,
+      "title": "부산포 해전",
+      "description": "부산에 집결한 일본 수군을 격파하기 위해 출전하였으나 큰 피해를 입힘.",
+      "event_date": "1592-09-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 44,
+    "fields": {
+      "person": 2,
+      "title": "삼도수군통제사 파직",
+      "description": "원균의 모함과 조정의 오판으로 삼도수군통제사에서 파직되어 한양으로 압송됨.",
+      "event_date": "1597-02-26"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 45,
+    "fields": {
+      "person": 2,
+      "title": "칠천량 해전과 백의종군",
+      "description": "원균이 이끄는 조선 수군이 칠천량에서 대패하자, 다시 삼도수군통제사로 재임명되어 백의종군함.",
+      "event_date": "1597-07-16"
+    }
+  },
+  {
+    "model": "bio.person",
+    "pk": 3,
+    "fields": {
+      "name": "세종대왕",
+      "image": "",
+      "biography": "조선의 제4대 임금. 훈민정음 창제, 과학 기술 발전 등 수많은 업적을 남겨 성군으로 추앙받고 있다.",
+      "created_at": "2025-12-14T01:00:00Z"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 8,
+    "fields": {
+      "person": 3,
+      "title": "출생",
+      "description": "태종의 셋째 아들로 태어남.",
+      "event_date": "1397-05-15"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 9,
+    "fields": {
+      "person": 3,
+      "title": "즉위",
+      "description": "조선의 제4대 임금으로 즉위.",
+      "event_date": "1418-09-09"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 10,
+    "fields": {
+      "person": 3,
+      "title": "훈민정음 반포",
+      "description": "백성을 위해 훈민정음을 창제하고 반포함.",
+      "event_date": "1446-10-09"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 11,
+    "fields": {
+      "person": 3,
+      "title": "사망",
+      "description": "54세의 나이로 승하.",
+      "event_date": "1450-04-08"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 46,
+    "fields": {
+      "person": 3,
+      "title": "왕세자 책봉",
+      "description": "원래 왕위 계승 서열이 아니었으나, 양녕대군이 폐위되면서 충녕대군이 왕세자로 책봉됨.",
+      "event_date": "1418-06-03"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 47,
+    "fields": {
+      "person": 3,
+      "title": "집현전 설치",
+      "description": "학문 연구와 국정 자문을 위한 기관으로 집현전을 설치하고 학자들을 양성함.",
+      "event_date": "1420-03-16"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 48,
+    "fields": {
+      "person": 3,
+      "title": "대마도 정벌",
+      "description": "이종무를 시켜 왜구의 근거지인 대마도를 정벌함.",
+      "event_date": "1419-06-19"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 49,
+    "fields": {
+      "person": 3,
+      "title": "농사직설 편찬",
+      "description": "우리 풍토에 맞는 농법을 정리한 '농사직설'을 편찬하여 보급함.",
+      "event_date": "1429-05-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 50,
+    "fields": {
+      "person": 3,
+      "title": "앙부일구 발명",
+      "description": "장영실 등에게 명하여 해시계인 앙부일구를 제작함.",
+      "event_date": "1434-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 51,
+    "fields": {
+      "person": 3,
+      "title": "측우기 발명",
+      "description": "세계 최초로 강우량을 측정하는 기구인 측우기를 발명하고 전국에 보급함.",
+      "event_date": "1441-05-19"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 52,
+    "fields": {
+      "person": 3,
+      "title": "용비어천가 편찬",
+      "description": "조선 건국의 정당성과 선조들의 업적을 기리기 위해 '용비어천가'를 편찬함.",
+      "event_date": "1447-01-01"
+    }
+  },
+  {
+    "model": "bio.person",
+    "pk": 4,
+    "fields": {
+      "name": "유관순",
+      "image": "",
+      "biography": "일제강점기의 독립운동가. 3.1 운동에 참여하여 '대한독립 만세'를 외치다 순국했다.",
+      "created_at": "2025-12-14T02:00:00Z"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 12,
+    "fields": {
+      "person": 4,
+      "title": "출생",
+      "description": "충청남도 천안에서 태어남.",
+      "event_date": "1902-12-16"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 13,
+    "fields": {
+      "person": 4,
+      "title": "아우내 장터 만세운동",
+      "description": "고향인 천안 아우내 장터에서 만세운동을 주도함.",
+      "event_date": "1919-04-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 14,
+    "fields": {
+      "person": 4,
+      "title": "순국",
+      "description": "서대문형무소에서 옥중 투쟁을 이어가다 18세의 나이로 순국.",
+      "event_date": "1920-09-28"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 53,
+    "fields": {
+      "person": 4,
+      "title": "이화학당 입학",
+      "description": "선교사의 추천으로 이화학당 보통과에 입학하여 신학문을 배움.",
+      "event_date": "1916-04-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 54,
+    "fields": {
+      "person": 4,
+      "title": "3.1 운동 참여",
+      "description": "서울 탑골공원에서 시작된 3.1 만세운동에 학생들과 함께 참여함.",
+      "event_date": "1919-03-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 55,
+    "fields": {
+      "person": 4,
+      "title": "고향에서의 만세운동 준비",
+      "description": "휴교령으로 고향에 내려와 천안 일대의 교회와 학교를 돌며 만세운동을 계획함.",
+      "event_date": "1919-03-20"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 56,
+    "fields": {
+      "person": 4,
+      "title": "공주지방법원 재판",
+      "description": "아우내 장터 만세운동의 주동자로 체포되어 공주지방법원에서 5년형을 선고받음.",
+      "event_date": "1919-06-30"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 57,
+    "fields": {
+      "person": 4,
+      "title": "옥중 만세운동",
+      "description": "서대문형무소 수감 중 3.1운동 1주년을 맞아 옥중 만세운동을 주도함.",
+      "event_date": "1920-03-01"
+    }
+  },
+  {
+    "model": "bio.person",
+    "pk": 5,
+    "fields": {
+      "name": "신사임당",
+      "image": "",
+      "biography": "조선 중기의 예술가, 작가, 시인. 율곡 이이의 어머니이자 현모양처의 상징으로 여겨진다.",
+      "created_at": "2025-12-14T03:00:00Z"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 15,
+    "fields": {
+      "person": 5,
+      "title": "출생",
+      "description": "강원도 강릉 북평촌에서 태어남.",
+      "event_date": "1504-10-29"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 16,
+    "fields": {
+      "person": 5,
+      "title": "결혼",
+      "description": "이원수와 결혼하여 율곡 이이를 비롯한 4남 3녀를 둠.",
+      "event_date": "1522-08-20"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 17,
+    "fields": {
+      "person": 5,
+      "title": "사망",
+      "description": "48세의 나이로 삼청동에서 사망.",
+      "event_date": "1551-05-17"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 58,
+    "fields": {
+      "person": 5,
+      "title": "어머니를 그리며",
+      "description": "결혼 후에도 친정어머니를 그리워하며 '사친(思親)'이라는 시를 지음.",
+      "event_date": "1525-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 59,
+    "fields": {
+      "person": 5,
+      "title": "초충도 제작",
+      "description": "풀과 벌레를 섬세하게 묘사한 '초충도'를 그려 예술적 재능을 뽐냄.",
+      "event_date": "1540-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 60,
+    "fields": {
+      "person": 5,
+      "title": "율곡 이이 출생",
+      "description": "훗날 위대한 학자가 되는 셋째 아들 이이(율곡)를 낳음.",
+      "event_date": "1536-12-26"
+    }
+  },
+  {
+    "model": "bio.person",
+    "pk": 6,
+    "fields": {
+      "name": "장영실",
+      "image": "",
+      "biography": "조선 세종 때의 과학자. 자격루, 앙부일구 등 많은 발명품을 만들었다.",
+      "created_at": "2025-12-14T04:00:00Z"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 18,
+    "fields": {
+      "person": 6,
+      "title": "발탁",
+      "description": "세종에게 발탁되어 궁중 기술자로 활동 시작.",
+      "event_date": "1423-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 19,
+    "fields": {
+      "person": 6,
+      "title": "자격루 제작",
+      "description": "스스로 시간을 알려주는 물시계인 자격루를 완성.",
+      "event_date": "1434-07-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 20,
+    "fields": {
+      "person": 6,
+      "title": "파직",
+      "description": "임금이 타는 가마가 부서진 것에 대한 책임으로 파직됨.",
+      "event_date": "1442-04-26"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 61,
+    "fields": {
+      "person": 6,
+      "title": "혼천의 제작",
+      "description": "천체의 운행을 관측하는 기구인 혼천의를 제작.",
+      "event_date": "1433-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 62,
+    "fields": {
+      "person": 6,
+      "title": "갑인자 주조",
+      "description": "세종의 명을 받아 금속활자인 갑인자 주조에 참여.",
+      "event_date": "1434-01-01"
+    }
+  },
+  {
+    "model": "bio.person",
+    "pk": 7,
+    "fields": {
+      "name": "김구",
+      "image": "",
+      "biography": "대한민국 임시정부의 주석. '나의 소원'이라는 글을 통해 완전한 자주독립국가를 소망했다.",
+      "created_at": "2025-12-14T05:00:00Z"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 21,
+    "fields": {
+      "person": 7,
+      "title": "출생",
+      "description": "황해도 해주에서 태어남.",
+      "event_date": "1876-08-29"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 22,
+    "fields": {
+      "person": 7,
+      "title": "임시정부 주석 취임",
+      "description": "대한민국 임시정부의 주석으로 취임하여 독립운동을 이끎.",
+      "event_date": "1940-09-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 23,
+    "fields": {
+      "person": 7,
+      "title": "서거",
+      "description": "경교장에서 안두희의 총에 맞아 서거.",
+      "event_date": "1949-06-26"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 63,
+    "fields": {
+      "person": 7,
+      "title": "동학 농민 운동 참여",
+      "description": "청년 시절 동학에 입도하여 동학 농민 운동에 참여.",
+      "event_date": "1894-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 64,
+    "fields": {
+      "person": 7,
+      "title": "상하이 망명",
+      "description": "3.1 운동 이후, 독립운동을 위해 중국 상하이로 망명.",
+      "event_date": "1919-04-11"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 65,
+    "fields": {
+      "person": 7,
+      "title": "한인애국단 조직",
+      "description": "이봉창, 윤봉길 의거를 주도한 한인애국단을 조직.",
+      "event_date": "1931-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 66,
+    "fields": {
+      "person": 7,
+      "title": "백범일지 저술",
+      "description": "자신의 삶과 독립운동 과정을 기록한 '백범일지'를 저술.",
+      "event_date": "1947-01-01"
+    }
+  },
+  {
+    "model": "bio.person",
+    "pk": 8,
+    "fields": {
+      "name": "안중근",
+      "image": "",
+      "biography": "일제강점기 독립운동가. 하얼빈에서 이토 히로부미를 저격하여 민족의 독립 의지를 세계에 알렸다.",
+      "created_at": "2025-12-14T06:00:00Z"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 24,
+    "fields": {
+      "person": 8,
+      "title": "출생",
+      "description": "황해도 해주부에서 태어남.",
+      "event_date": "1879-09-02"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 25,
+    "fields": {
+      "person": 8,
+      "title": "하얼빈 의거",
+      "description": "하얼빈역에서 이토 히로부미를 저격함.",
+      "event_date": "1909-10-26"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 26,
+    "fields": {
+      "person": 8,
+      "title": "순국",
+      "description": "뤼순 감옥에서 사형 집행으로 순국.",
+      "event_date": "1910-03-26"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 67,
+    "fields": {
+      "person": 8,
+      "title": "단지동맹 결성",
+      "description": "동지들과 함께 왼손 무명지를 잘라 '대한독립' 혈서를 쓰며 조국 독립을 맹세.",
+      "event_date": "1909-03-05"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 68,
+    "fields": {
+      "person": 8,
+      "title": "동양평화론 집필",
+      "description": "옥중에서 한중일 3국의 평화 공존을 위한 '동양평화론'을 집필하였으나 완성하지 못함.",
+      "event_date": "1910-02-14"
+    }
+  },
+  {
+    "model": "bio.person",
+    "pk": 9,
+    "fields": {
+      "name": "윤동주",
+      "image": "",
+      "biography": "일제강점기의 시인. '서시', '별 헤는 밤' 등 민족의 아픔과 희망을 노래한 작품들을 남겼다.",
+      "created_at": "2025-12-14T07:00:00Z"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 27,
+    "fields": {
+      "person": 9,
+      "title": "출생",
+      "description": "북간도 명동촌에서 태어남.",
+      "event_date": "1917-12-30"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 28,
+    "fields": {
+      "person": 9,
+      "title": "일본 유학 및 체포",
+      "description": "일본 유학 중 독립운동 혐의로 체포됨.",
+      "event_date": "1943-07-14"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 29,
+    "fields": {
+      "person": 9,
+      "title": "사망",
+      "description": "후쿠오카 형무소에서 27세의 나이로 옥사.",
+      "event_date": "1945-02-16"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 69,
+    "fields": {
+      "person": 9,
+      "title": "연희전문학교 입학",
+      "description": "연희전문학교(현 연세대학교) 문과에 입학하여 문학의 꿈을 키움.",
+      "event_date": "1938-04-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 70,
+    "fields": {
+      "person": 9,
+      "title": "'하늘과 바람과 별과 시' 원고 작성",
+      "description": "자신의 시 19편을 묶어 시집 '하늘과 바람과 별과 시'의 원고를 완성했으나, 출판하지 못함.",
+      "event_date": "1941-11-20"
+    }
+  },
+  {
+    "model": "bio.person",
+    "pk": 10,
+    "fields": {
+      "name": "정약용",
+      "image": "",
+      "biography": "조선 후기의 실학자. '목민심서', '경세유표' 등 500여 권의 저서를 통해 사회 개혁을 주장했다.",
+      "created_at": "2025-12-14T08:00:00Z"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 30,
+    "fields": {
+      "person": 10,
+      "title": "출생",
+      "description": "경기도 광주에서 태어남.",
+      "event_date": "1762-08-05"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 31,
+    "fields": {
+      "person": 10,
+      "title": "유배",
+      "description": "신유박해에 연루되어 전라남도 강진으로 18년간 유배 생활을 함.",
+      "event_date": "1801-11-23"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 32,
+    "fields": {
+      "person": 10,
+      "title": "목민심서 저술",
+      "description": "유배 기간 동안 지방관의 도리를 담은 '목민심서'를 저술함.",
+      "event_date": "1818-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 33,
+    "fields": {
+      "person": 10,
+      "title": "사망",
+      "description": "고향에서 74세의 나이로 사망.",
+      "event_date": "1836-04-07"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 71,
+    "fields": {
+      "person": 10,
+      "title": "수원 화성 설계",
+      "description": "정조의 명을 받아 거중기 등의 과학 기술을 활용하여 수원 화성 설계에 참여.",
+      "event_date": "1794-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 72,
+    "fields": {
+      "person": 10,
+      "title": "경세유표 저술",
+      "description": "국가 경영에 관한 자신의 개혁 사상을 담은 '경세유표'를 저술.",
+      "event_date": "1817-01-01"
+    }
+  },
+  {
+    "model": "bio.lifeevent",
+    "pk": 73,
+    "fields": {
+      "person": 10,
+      "title": "흠흠신서 저술",
+      "description": "형법에 대한 자신의 견해와 사건 판례를 정리한 '흠흠신서'를 저술.",
+      "event_date": "1819-01-01"
     }
   }
 ]
