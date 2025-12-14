@@ -1,3 +1,7 @@
 {
-  "recommendations": ["dbaeumer.vscode-eslint", "prettier.prettier-vscode"]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "prettier.prettier-vscode",
+    "monosans.djlint"
+  ]
 }

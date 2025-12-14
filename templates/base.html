@@ -1,10 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>{% block title %}Trends{% endblock %}</title>
+    <title>
+      {% block title %}Trends{% endblock %}
+    </title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
   </head>
   <body>
     <header class="bg-white border-b">
@@ -14,20 +17,26 @@
             <a href="/" class="text-xl font-semibold text-gray-800">Trends</a>
             <span class="text-sm text-gray-500">trends.google.com/</span>
           </div>
-
           <div>
             <ul class="flex items-center gap-4 text-sm">
-              <li><a href="{% url 'home' %}" class="text-gray-700 hover:underline">Home</a></li>
-              <li><a href="/explore/" class="text-gray-700 hover:underline">Explore</a></li>
-              <li><a href="/trending/" class="text-gray-700 hover:underline">Trending</a></li>
+              <li>
+                <a href="{% url 'home' %}" class="text-gray-700 hover:underline">Home</a>
+              </li>
+              <li>
+                <a href="/explore/" class="text-gray-700 hover:underline">Explore</a>
+              </li>
+              <li>
+                <a href="/trending/" class="text-gray-700 hover:underline">Trending</a>
+              </li>
             </ul>
           </div>
         </nav>
       </div>
     </header>
-
-    <main>{% block content %}{% endblock %}</main>
-
-    <footer></footer>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    <footer>
+    </footer>
   </body>
 </html>

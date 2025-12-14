@@ -1,0 +1,14 @@
+{% for event in life_events %}
+    <div class="mb-10 ml-10">
+        <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-8 ring-white">
+            <svg class="w-4 h-4 text-blue-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4Z M0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+            </svg>
+        </span>
+        <h3 class="flex items-center mb-1 text-xl font-semibold text-gray-900">
+            {{ event.title }}
+        </h3>
+        <time class="block mb-2 text-sm font-normal leading-none text-gray-400">{{ event.event_date|date:"F j, Y" }}</time>
+        <p class="text-base font-normal text-gray-500">{{ event.description }}</p>
+    </div>
+{% endfor %}

@@ -11,10 +11,33 @@ def home(request):
 
 def bio_detail(request, slug):
     person = get_object_or_404(Person, slug=slug)
-    life_events = person.life_events.all().order_by("event_date")
-    return render(
-        request, "bio_detail.html", {"person": person, "life_events": life_events}
+    all_events = person.life_events.all().order_by("event_date")
+
+    # Get a unique, sorted list of years from the events
+    years = sorted(list(set(event.event_date.year for event in all_events)))
+
+    # Determine the selected year
+    try:
+        selected_year = int(request.GET.get("year", years[0] if years else None))
+    except (ValueError, TypeError):
+        selected_year = years[0] if years else None
+
+    # Filter events for the selected year
+    life_events = (
+        all_events.filter(event_date__year=selected_year) if selected_year else []
     )
+
+    context = {
+        "person": person,
+        "life_events": life_events,
+        "years": years,
+        "selected_year": selected_year,
+    }
+
+    if request.headers.get("HX-Request"):
+        return render(request, "_event_list.html", context)
+
+    return render(request, "bio_detail.html", context)
 
 
 def explore(request):
