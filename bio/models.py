@@ -40,3 +40,16 @@ class LifeEvent(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     event_date = models.DateField()
+
+
+class PersonClick(models.Model):
+    """인물 상세 페이지 클릭 기록 모델"""
+
+    person = models.ForeignKey(Person, on_delete=models.CASCADE, related_name="clicks")
+    viewed_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=["person", "viewed_at"]),
+        ]
+        ordering = ["-viewed_at"]

@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .models import Person
+from .models import Person, PersonClick
 from django.core.serializers import serialize
+from django.utils import timezone
+from datetime import timedelta
+from django.db.models import Count, Case, When, Value, IntegerField
 
 
 def home(request):
@@ -11,6 +14,10 @@ def home(request):
 
 def bio_detail(request, slug):
     person = get_object_or_404(Person, slug=slug)
+
+    # Record the click
+    PersonClick.objects.create(person=person, viewed_at=timezone.now())
+
     all_events = person.life_events.all().order_by("event_date")
 
     # Get a unique, sorted list of years from the events
@@ -46,33 +53,41 @@ def explore(request):
 
 
 def trending(request):
-    # period can be 'day', 'week', 'month', 'all' (UI-only)
     period = request.GET.get("period", "day")
+    end_date = timezone.now()
+    start_date = end_date
 
-    # fake datasets per period (UI-only)
-    fake_day = [
-        {"name": "Alex Kim", "role": "Entrepreneur", "location": "Seoul"},
-        {"name": "Soo Jin", "role": "Actor", "location": "Incheon"},
-    ]
-    fake_week = [
-        {"name": "Mina Park", "role": "Musician", "location": "Busan"},
-        {"name": "Hyun Woo", "role": "Athlete", "location": "Gwangju"},
-        {"name": "Alex Kim", "role": "Entrepreneur", "location": "Seoul"},
-    ]
-    fake_month = [
-        {"name": "Joon Lee", "role": "Researcher", "location": "Daegu"},
-        {"name": "Mina Park", "role": "Musician", "location": "Busan"},
-        {"name": "Soo Jin", "role": "Actor", "location": "Incheon"},
-        {"name": "Hyun Woo", "role": "Athlete", "location": "Gwangju"},
-    ]
-    fake_all = fake_month + fake_week
+    if period == "day":
+        start_date = end_date - timedelta(days=1)
+    elif period == "week":
+        start_date = end_date - timedelta(days=7)
+    elif period == "month":
+        start_date = end_date - timedelta(days=30)
+    # If period is 'all', no start_date filter is applied to PersonClick
 
-    datasets = {
-        "day": fake_day,
-        "week": fake_week,
-        "month": fake_month,
-        "all": fake_all,
-    }
+    if period == "all":
+        trending_people_query = (
+            PersonClick.objects.values("person")
+            .annotate(click_count=Count("id"))
+            .order_by("-click_count")
+        )
+    else:
+        trending_people_query = (
+            PersonClick.objects.filter(viewed_at__gte=start_date)
+            .values("person")
+            .annotate(click_count=Count("id"))
+            .order_by("-click_count")
+        )
 
-    people = datasets.get(period, fake_day)
+    # Get the PIDs of trending people
+    trending_person_pks = [item["person"] for item in trending_people_query]
+
+    # Fetch the actual Person objects in the order of their trending status
+    preserved = Case(
+        *[When(pk=pk, then=pos) for pos, pk in enumerate(trending_person_pks)],
+        output_field=IntegerField(),
+    )
+
+    people = Person.objects.filter(pk__in=trending_person_pks).order_by(preserved)
+
     return render(request, "trending.html", {"people": people, "period": period})
