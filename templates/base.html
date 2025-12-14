@@ -1,10 +1,13 @@
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>
-      {% block title %}Trends{% endblock %}
+      {% block title %}
+        {% translate "Trends" %}
+      {% endblock %}
     </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
@@ -14,21 +17,39 @@
       <div class="max-w-6xl mx-auto px-4">
         <nav class="flex items-center justify-between h-16">
           <div class="flex items-center gap-3">
-            <a href="/" class="text-xl font-semibold text-gray-800">Trends</a>
+            <a href="/" class="text-xl font-semibold text-gray-800">{% translate "Trends" %}</a>
             <span class="text-sm text-gray-500">trends.google.com/</span>
           </div>
-          <div>
+          <div class="flex items-center gap-6">
             <ul class="flex items-center gap-4 text-sm">
               <li>
-                <a href="{% url 'home' %}" class="text-gray-700 hover:underline">Home</a>
+                <a href="{% url 'home' %}" class="text-gray-700 hover:underline">{% translate "Home" %}</a>
               </li>
               <li>
-                <a href="/explore/" class="text-gray-700 hover:underline">Explore</a>
+                <a href="{% url 'explore' %}" class="text-gray-700 hover:underline">{% translate "Explore" %}</a>
               </li>
               <li>
-                <a href="/trending/" class="text-gray-700 hover:underline">Trending</a>
+                <a href="{% url 'trending' %}" class="text-gray-700 hover:underline">{% translate "Trending" %}</a>
               </li>
             </ul>
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            <div class="flex items-center text-sm">
+              <span class="text-gray-600 mr-2">{% translate "Language" %}:</span>
+              <form action="{% url 'set_language' %}" method="post" class="inline">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ redirect_to }}">
+                <select name="language" onchange="this.form.submit()">
+                  {% for language in languages %}
+                    <option value="{{ language.code }}"
+                            {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                      {{ language.name_local }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </form>
+            </div>
           </div>
         </nav>
       </div>
