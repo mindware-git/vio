@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Person
+from django.core.serializers import serialize
 
 
 def home(request):
@@ -9,7 +10,11 @@ def home(request):
 
 
 def bio_detail(request, slug):
-    return HttpResponse(f"hello {slug}")
+    person = get_object_or_404(Person, slug=slug)
+    life_events = person.life_events.all().order_by("event_date")
+    return render(
+        request, "bio_detail.html", {"person": person, "life_events": life_events}
+    )
 
 
 def explore(request):
