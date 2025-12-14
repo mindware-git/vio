@@ -5,6 +5,7 @@ from django.core.serializers import serialize
 from django.utils import timezone
 from datetime import timedelta
 from django.db.models import Count, Case, When, Value, IntegerField
+from django.db.models import Q
 
 
 def home(request):
@@ -49,7 +50,12 @@ def bio_detail(request, slug):
 
 def explore(request):
     q = request.GET.get("q", "")
-    return render(request, "explore.html", {"q": q})
+    results = []
+    if q:
+        results = Person.objects.filter(
+            Q(name__icontains=q) | Q(biography__icontains=q)
+        )
+    return render(request, "explore.html", {"q": q, "results": results})
 
 
 def trending(request):
