@@ -26,5 +26,5 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("explore/", views.explore, name="explore"),
     path("trending/", views.trending, name="trending"),
-    path("bio/<slug:slug>/", include("bio.urls")),
+    path("bio/<str:slug>/", include("bio.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

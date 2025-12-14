@@ -13,6 +13,10 @@ class Person(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
+        if kwargs.get("raw", False):
+            super().save(*args, **kwargs)
+            return
+
         if not self.slug:
             self.slug = slugify(self.name, allow_unicode=True)
 
