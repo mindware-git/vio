@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Upload JSON{% endblock %}
+{% block content %}
+    <div class="container mt-5">
+        <h2>Upload Person Data</h2>
+        <p>Upload a JSON file to update the person database. The file should follow the specified format.</p>
+        {% if messages %}
+            <div class="mt-3">
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}"
+                         role="alert">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">Upload File</h5>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Select a .json file</label>
+                        <input class="form-control" type="file" id="file" name="file" accept=".json">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

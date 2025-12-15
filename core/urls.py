@@ -33,6 +33,7 @@ urlpatterns += i18n_patterns(
     path("", views.home, name="home"),
     path("explore/", views.explore, name="explore"),
     path("trending/", views.trending, name="trending"),
+    path("upload/", views.upload_file, name="upload_file"),
     path("bio/<str:slug>/", include("bio.urls")),
 )
 

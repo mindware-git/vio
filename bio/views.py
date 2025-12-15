@@ -1,11 +1,14 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
 from .models import Person, PersonClick
-from django.core.serializers import serialize
 from django.utils import timezone
 from datetime import timedelta
-from django.db.models import Count, Case, When, Value, IntegerField
+from django.db.models import Count, Case, When, IntegerField
 from django.db.models import Q
+from django.shortcuts import redirect
+from django.contrib import messages
+from django.core.management import call_command
+import tempfile
+import os
 
 
 def home(request):
@@ -97,3 +100,42 @@ def trending(request):
     people = Person.objects.filter(pk__in=trending_person_pks).order_by(preserved)
 
     return render(request, "trending.html", {"people": people, "period": period})
+
+
+def upload_file(request):
+    if request.method == "POST":
+        if "file" not in request.FILES:
+            messages.error(request, "No file part")
+            return redirect(request.path)
+
+        file = request.FILES["file"]
+        if file.name == "":
+            messages.error(request, "No selected file")
+            return redirect(request.path)
+
+        if file and file.name.endswith(".json"):
+            try:
+                # Create a temporary file to store the uploaded data
+                with tempfile.NamedTemporaryFile(
+                    delete=False, mode="wb+", suffix=".json"
+                ) as temp_f:
+                    for chunk in file.chunks():
+                        temp_f.write(chunk)
+                    temp_file_path = temp_f.name
+
+                # Call the management command
+                call_command("load_result_data", f"--file={temp_file_path}", "--update")
+                messages.success(request, "File processed successfully!")
+
+            except Exception as e:
+                messages.error(request, f"An error occurred: {e}")
+            finally:
+                if "temp_file_path" in locals() and os.path.exists(temp_file_path):
+                    os.remove(temp_file_path)  # Clean up the temp file
+
+            return redirect("upload_file")
+        else:
+            messages.error(request, "Invalid file type. Please upload a .json file.")
+            return redirect(request.path)
+
+    return render(request, "upload.html")
