@@ -10,6 +10,15 @@ class Person(models.Model):
     slug = models.SlugField(max_length=255, unique=True, allow_unicode=True, blank=True)
     image = models.ImageField(upload_to="persons/", null=True, blank=True)
     biography = models.TextField(blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+    death_date = models.DateField(null=True, blank=True)
+    occupation = models.CharField(
+        max_length=500,
+        null=True,
+        blank=True,
+        help_text="쉼표로 구분된 직업 목록 (예: 코미디언,방송인,유튜버)",
+    )
+    nationality = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
