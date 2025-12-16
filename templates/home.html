@@ -2,6 +2,15 @@
 {% block title %}Home - Trends{% endblock %}
 {% block content %}
   <div>
+    <!-- VIO description -->
+    <section class="mb-8 text-center">
+      <h1 class="text-2xl font-bold mb-4">Visual Biography Platform</h1>
+      <p class="text-gray-700 max-w-2xl mx-auto">
+        Vio는 역사 실록처럼 인물에 관한 사실만을 모아서 이해하기 쉬운 그래픽 정보를 제공합니다.
+        위인들의 모든 실제 정보를 모으고, 인물 탭에서 그 사람의 행적을 시각적으로 확인할 수 있으며,
+        나중에는 대화도 가능한 플랫폼입니다.
+      </p>
+    </section>
     <!-- UI-only search: does not submit -->
     <section>
       <form action="{% url 'explore' %}" method="GET" aria-label="Search form">
@@ -37,6 +46,13 @@
           </li>
         {% endfor %}
       </ul>
+    </section>
+    <!-- Additional description below people cards -->
+    <section class="mt-8 text-center">
+      <p class="text-gray-700 max-w-2xl mx-auto">
+        위의 인물들을 클릭하여 그들의 생애를 시각적으로 탐색해보세요.
+        각 인물의 상세 페이지에서는 그들의 주요 사건들과 업적들을 시간 순으로 확인할 수 있습니다.
+      </p>
     </section>
   </div>
 {% endblock %}
