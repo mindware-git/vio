@@ -35,7 +35,9 @@ def bio_detail(request, slug):
 
     # Filter events for the selected year
     life_events = (
-        all_events.filter(event_date__year=selected_year) if selected_year else []
+        all_events.filter(event_date__year=selected_year).prefetch_related("evidences")
+        if selected_year
+        else []
     )
 
     context = {

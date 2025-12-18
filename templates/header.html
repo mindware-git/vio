@@ -1,0 +1,102 @@
+{% load i18n %}
+<header class="bg-white border-b">
+    <div class="max-w-6xl mx-auto px-4">
+        <nav class="flex items-center justify-between h-16">
+            <div class="flex items-center gap-3">
+                <a href="/" class="text-xl font-semibold text-gray-800">{% translate "Vio" %}</a>
+                <span class="text-sm text-gray-500">{% translate "Visual Biography" %}</span>
+            </div>
+            <!-- Mobile menu button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button"
+                        class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden md:flex items-center gap-6">
+                <ul class="flex items-center gap-4 text-sm">
+                    <li>
+                        <a href="{% url 'home' %}"
+                           class="text-gray-700 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md">{% translate "Home" %}</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'explore' %}"
+                           class="text-gray-700 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md">{% translate "Explore" %}</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'trending' %}"
+                           class="text-gray-700 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md">{% translate "Trending" %}</a>
+                    </li>
+                </ul>
+                {% get_current_language as LANGUAGE_CODE %}
+                {% get_available_languages as LANGUAGES %}
+                {% get_language_info_list for LANGUAGES as languages %}
+                <div class="flex items-center text-sm">
+                    <span class="text-gray-600 mr-2">{% translate "Language" %}:</span>
+                    <form action="{% url 'set_language' %}" method="post" class="inline">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                        <select name="language"
+                                onchange="this.form.submit()"
+                                class="bg-white border border-gray-300 rounded-md px-2 py-1">
+                            {% for language in languages %}
+                                <option value="{{ language.code }}"
+                                        {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                                    {{ language.name_local }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+        <ul class="flex flex-col gap-2 p-4">
+            <li>
+                <a href="{% url 'home' %}"
+                   class="block text-gray-700 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md">{% translate "Home" %}</a>
+            </li>
+            <li>
+                <a href="{% url 'explore' %}"
+                   class="block text-gray-700 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md">{% translate "Explore" %}</a>
+            </li>
+            <li>
+                <a href="{% url 'trending' %}"
+                   class="block text-gray-700 hover:text-blue-600 hover:bg-gray-100 px-3 py-2 rounded-md">{% translate "Trending" %}</a>
+            </li>
+        </ul>
+        <div class="p-4">
+            <div class="flex items-center text-sm">
+                <span class="text-gray-600 mr-2">{% translate "Language" %}:</span>
+                <form action="{% url 'set_language' %}" method="post" class="inline">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                    <select name="language"
+                            onchange="this.form.submit()"
+                            class="bg-white border border-gray-300 rounded-md px-2 py-1">
+                        {% for language in languages %}
+                            <option value="{{ language.code }}"
+                                    {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+                                {{ language.name_local }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
+</header>

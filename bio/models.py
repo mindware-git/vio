@@ -62,3 +62,27 @@ class PersonClick(models.Model):
             models.Index(fields=["person", "viewed_at"]),
         ]
         ordering = ["-viewed_at"]
+
+
+class Evidence(models.Model):
+    """생애 사건/이정표의 증빙 자료 모델"""
+
+    EVIDENCE_TYPE_CHOICES = [
+        ("text", "텍스트"),
+        ("link", "링크"),
+        ("image", "이미지"),
+        ("video", "영상"),
+    ]
+
+    life_event = models.ForeignKey(
+        LifeEvent, on_delete=models.CASCADE, related_name="evidences"
+    )
+    evidence_type = models.CharField(max_length=10, choices=EVIDENCE_TYPE_CHOICES)
+    text_content = models.TextField(blank=True, null=True)
+    link_url = models.URLField(blank=True, null=True)
+    image_file = models.ImageField(upload_to="evidences/images/", blank=True, null=True)
+    video_file = models.FileField(upload_to="evidences/videos/", blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.life_event.title} - {self.get_evidence_type_display()}"

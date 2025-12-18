@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>
       {% block title %}
-        {% translate "Trends" %}
+        {% translate "Vio" %}
       {% endblock %}
     </title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,57 +22,10 @@
     </script>
   </head>
   <body>
-    <header class="bg-white border-b">
-      <div class="max-w-6xl mx-auto px-4">
-        <nav class="flex items-center justify-between h-16">
-          <div class="flex items-center gap-3">
-            <a href="/" class="text-xl font-semibold text-gray-800">{% translate "Trends" %}</a>
-            <span class="text-sm text-gray-500">trends.google.com/</span>
-          </div>
-          <div class="flex items-center gap-6">
-            <ul class="flex items-center gap-4 text-sm">
-              <li>
-                <a href="{% url 'home' %}" class="text-gray-700 hover:underline">{% translate "Home" %}</a>
-              </li>
-              <li>
-                <a href="{% url 'explore' %}" class="text-gray-700 hover:underline">{% translate "Explore" %}</a>
-              </li>
-              <li>
-                <a href="{% url 'trending' %}" class="text-gray-700 hover:underline">{% translate "Trending" %}</a>
-              </li>
-            </ul>
-            {% get_current_language as LANGUAGE_CODE %}
-            {% get_available_languages as LANGUAGES %}
-            {% get_language_info_list for LANGUAGES as languages %}
-            <div class="flex items-center text-sm">
-              <span class="text-gray-600 mr-2">{% translate "Language" %}:</span>
-              <form action="{% url 'set_language' %}" method="post" class="inline">
-                {% csrf_token %}
-                <input name="next" type="hidden" value="{{ redirect_to }}">
-                <select name="language" onchange="this.form.submit()">
-                  {% for language in languages %}
-                    <option value="{{ language.code }}"
-                            {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-                      {{ language.name_local }}
-                    </option>
-                  {% endfor %}
-                </select>
-              </form>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+    {% include 'header.html' %}
     <main>
       {% block content %}{% endblock %}
     </main>
-    <footer class="bg-white border-t mt-8 py-4">
-      <div class="max-w-6xl mx-auto px-4 text-center text-sm text-gray-600">
-        <p>
-          Contact: <a href="mailto:mindware777@gmail.com"
-    class="text-blue-600 hover:underline">mindware777@gmail.com</a>
-        </p>
-      </div>
-    </footer>
+    {% include 'footer.html' %}
   </body>
 </html>

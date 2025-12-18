@@ -13,13 +13,7 @@
     </section>
     <!-- UI-only search: does not submit -->
     <section>
-      <form action="{% url 'explore' %}" method="GET" aria-label="Search form">
-        <input name="q"
-               type="search"
-               placeholder="Search People"
-               aria-label="Search" />
-        <button type="submit">Search</button>
-      </form>
+      {% include 'search_form.html' %}
     </section>
     <section aria-label="People" class="mt-6">
       <h2>People</h2>

@@ -12,5 +12,39 @@
         <h3 class="flex items-center mb-1 text-xl font-semibold text-gray-900">{{ event.title }}</h3>
         <time class="block mb-2 text-sm font-normal leading-none text-gray-400">{{ event.event_date|date:"F j, Y" }}</time>
         <p class="text-base font-normal text-gray-500">{{ event.description }}</p>
+        <!-- Evidence Section -->
+        {% if event.evidences.all %}
+            <div class="mt-4">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">증빙 자료</h4>
+                <div class="space-y-3">
+                    {% for evidence in event.evidences.all %}
+                        {% if evidence.evidence_type == 'text' and evidence.text_content %}
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <p class="text-sm text-gray-700">{{ evidence.text_content }}</p>
+                            </div>
+                        {% elif evidence.evidence_type == 'link' and evidence.link_url %}
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <a href="{{ evidence.link_url }}"
+                                   target="_blank"
+                                   class="text-sm text-blue-600 hover:underline">{{ evidence.link_url }}</a>
+                            </div>
+                        {% elif evidence.evidence_type == 'image' and evidence.image_file %}
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <img src="{{ evidence.image_file.url }}"
+                                     alt="증빙 이미지"
+                                     class="max-w-full h-auto rounded">
+                            </div>
+                        {% elif evidence.evidence_type == 'video' and evidence.video_file %}
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <video controls class="max-w-full h-auto rounded">
+                                    <source src="{{ evidence.video_file.url }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endfor %}

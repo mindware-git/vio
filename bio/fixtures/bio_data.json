@@ -838,5 +838,25 @@
       "description": "형법에 대한 자신의 견해와 사건 판례를 정리한 '흠흠신서'를 저술.",
       "event_date": "1819-01-01"
     }
+  },
+  {
+    "model": "bio.evidence",
+    "pk": 74,
+    "fields": {
+      "life_event": 3,
+      "evidence_type": "text",
+      "text_content": "율도국은 홍길동이 만든 이상향으로, 모든 사람들이 평등하게 살아가는 사회를 상징한다.",
+      "created_at": "2025-12-18T09:00:00Z"
+    }
+  },
+  {
+    "model": "bio.evidence",
+    "pk": 75,
+    "fields": {
+      "life_event": 5,
+      "evidence_type": "link",
+      "link_url": "https://ko.wikipedia.org/wiki/한산도_대첩",
+      "created_at": "2025-12-18T09:00:00Z"
+    }
   }
 ]
