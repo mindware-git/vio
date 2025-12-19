@@ -19,6 +19,7 @@ class Person(models.Model):
         help_text="쉼표로 구분된 직업 목록 (예: 코미디언,방송인,유튜버)",
     )
     nationality = models.CharField(max_length=100, null=True, blank=True)
+    chat_enabled = models.BooleanField(default=False, help_text="대화 기능 사용 여부")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):

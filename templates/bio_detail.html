@@ -14,6 +14,14 @@
                         <span>No Image</span>
                     </div>
                 {% endif %}
+                <div class="mt-4">
+                    {% if person.chat_enabled %}
+                        <a href="{% url 'bio_chat' person.slug %}"
+                           class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline block text-center">
+                            AI와 대화하기
+                        </a>
+                    {% endif %}
+                </div>
             </div>
             <div class="w-full md:w-3/4">
                 <h1 class="text-4xl font-bold mb-4">{{ person.name }}</h1>
@@ -40,5 +48,22 @@
             <!-- Vertical Event List Container -->
             <div id="event-list" class="relative border-l-2 border-gray-200 ml-3">{% include "_event_list.html" %}</div>
         </section>
+        <!-- Comments Section -->
+        {% include "_comments.html" with person=person comments=comments %}
     </div>
+    <script>
+        function toggleReplyForm(commentId) {
+            const form = document.getElementById('reply-form-' + commentId);
+            if (form) {
+                form.classList.toggle('hidden');
+            }
+        }
+        
+        // 댓글 작성 후 폼 초기화
+        document.getElementById('comment-form').addEventListener('htmx:after-request', function(event) {
+            if (event.detail.successful) {
+                this.reset();
+            }
+        });
+    </script>
 {% endblock %}

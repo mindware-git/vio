@@ -1,5 +1,9 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
 from .models import Person, PersonClick
+from comment.models import Comment
+from django.contrib.contenttypes.models import ContentType
+from django.http import HttpResponse
 from django.utils import timezone
 from datetime import timedelta
 from django.db.models import Count, Case, When, IntegerField
@@ -40,11 +44,18 @@ def bio_detail(request, slug):
         else []
     )
 
+    # Get comments for this person
+    content_type = ContentType.objects.get_for_model(Person)
+    comments = Comment.objects.filter(
+        content_type=content_type, object_pk=person.pk, is_removed=False
+    ).order_by("-created_at")
+
     context = {
         "person": person,
         "life_events": life_events,
         "years": years,
         "selected_year": selected_year,
+        "comments": comments,
     }
 
     if request.headers.get("HX-Request"):
@@ -141,3 +152,64 @@ def upload_file(request):
             return redirect(request.path)
 
     return render(request, "upload.html")
+
+
+def bio_chat(request, slug):
+    person = get_object_or_404(Person, slug=slug)
+
+    if request.method == "POST":
+        message = request.POST.get("message", "")
+        # Echo the message as the response
+        response = message
+
+        # Return JSON response
+        return JsonResponse({"response": response})
+
+    # For GET request, render the chat page
+    return render(request, "bio_chat.html", {"person": person})
+
+
+def add_comment(request, slug):
+    if request.method == "POST":
+        person = get_object_or_404(Person, slug=slug)
+        user_name = request.POST.get("user_name")
+        comment_text = request.POST.get("comment")
+        parent_id = request.POST.get("parent_id")
+
+        if user_name and comment_text:
+            content_type = ContentType.objects.get_for_model(Person)
+
+            # Check if this is a reply
+            parent = None
+            if parent_id:
+                try:
+                    parent = Comment.objects.get(pk=parent_id)
+                    # Check if reply is allowed (depth < 2)
+                    if parent.get_depth() >= 2:
+                        return HttpResponse("Maximum reply depth exceeded", status=400)
+                except Comment.DoesNotExist:
+                    pass
+
+            # Create the comment
+            comment = Comment(
+                content_type=content_type,
+                object_pk=person.pk,
+                user_name=user_name,
+                comment=comment_text,
+                parent=parent,
+            )
+            comment.save()
+
+            # Get updated comments list
+            comments = Comment.objects.filter(
+                content_type=content_type, object_pk=person.pk, is_removed=False
+            ).order_by("-created_at")
+
+            # Return updated comments list
+            context = {
+                "person": person,
+                "comments": comments,
+            }
+            return render(request, "_comments_list.html", context)
+
+    return HttpResponse("Invalid request", status=400)
